@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Schedule</title>
+</head>
+<body>
+    <h2>Train Scheduling</h2>
+    <input type="text" id="trainInput" placeholder="Add Train..." />
+    <input type="text" id="departure" placeholder="Add Departure Time..." />
+    <input type="text" id="arrival" placeholder="Add Arrival Time..." />
+    <button onclick="add()">Add Train</button>
+    <ul id="trainList"></ul>
+    <script>
+        function add(){
+            let input1=document.getElementById("trainInput");
+            let text1=input1.value.trim();
+            let input2=document.getElementById("departure");
+            let text2=input2.value.trim();
+            let input3=document.getElementById("arrival");
+            let text3=input3.value.trim();
+            if (text1=== "") {
+                alert("Please enter the train name.");
+                return;
+            }
+            if(text2=== "") {
+                alert("Please enter the train departure time.");
+                return;
+            }
+            if(text3=== "") {
+                alert("Please enter the train arrival time1");
+                return;
+            }
+            let list= document.createElement("li");
+            let span= document.createElement("span");
+            span.textContent = text1+" "+text2+" "+text3;
+            list.appendChild(span);
+            document.getElementById("trainList").append(list);
+            input1.value = "";
+            input2.value = "";
+            input3.value = "";
+        }
+</script>
+</body>
+</html>
